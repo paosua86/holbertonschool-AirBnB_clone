@@ -2,6 +2,7 @@
 """ BaseModel """
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel():
@@ -10,7 +11,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """ Initialize objects """
         if kwargs:
-            for key, value in kwargs.items:
+            for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key == "__class__":
