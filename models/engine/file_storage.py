@@ -16,7 +16,8 @@ class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
 
 
 class FileStorage:
-    """serializes instances to a JSON file and deserializes JSON file to instances"""
+    """serializes instances to a JSON file and
+    deserializes JSON file to instances"""
     __file_path = "file.json"
     __objects = {}
 
@@ -39,12 +40,13 @@ class FileStorage:
             json.dump(dic, f)
 
     def reload(self):
-        """deserializes the JSON file to __objects (only if the JSON file (__file_path)"""
+        """deserializes the JSON file to __objects
+        (only if the JSON file (__file_path)"""
         try:
             with open(self.__file_path, "r") as f:
                 jsonfile = json.load(f)
             for key in jsonfile:
-                self.__objects[key] = class_items[jsonfile[key]["__class__"]](**jsonfile[key])
+                self.__objects[key] = class_items[jsonfile[key]
+                ["__class__"]](**jsonfile[key])
         except:
             pass
-
