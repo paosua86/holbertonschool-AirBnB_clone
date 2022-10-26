@@ -5,29 +5,17 @@ entry point of the command interprete
 import cmd
 import models
 from models.base_model import BaseModel
-<<<<<<< HEAD
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.amenity import Amenity
-=======
 from models.user import User
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
->>>>>>> 488a7e501dd90c5671f2630ad68ddb6df2bf591f
 from models import storage
 from models.user import User
 import shlex #splits the line along spaces except in double quotes
 
-<<<<<<< HEAD
-class_items = {"BaseModel": BaseModel, "Place": Place, "State": State,
-               "City": City, "Amenity": Amenity, "Review": Review, "User": User}
-=======
-class_items = {"BaseModel": BaseModel, "User": User, "Review": Review, "Amenity": Amenity, "City": City, "State": State}
->>>>>>> 488a7e501dd90c5671f2630ad68ddb6df2bf591f
+class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
+               "Amenity": Amenity, "City": City, "State": State}
 
 class HBNBCommand(cmd.Cmd):
     """command interprete"""
