@@ -5,11 +5,19 @@ contains FileStorage class
 from models.base_model import BaseModel
 from models.user import User
 import json
-class_items = {"BaseModel": BaseModel, "User": User}
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+
+class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
+               "Amenity": Amenity, "City": City, "State": State}
 
 
 class FileStorage:
-    """serializes instances to a JSON file and deserializes JSON file to instances"""
+    """serializes instances to a JSON file and
+    deserializes JSON file to instances"""
     __file_path = "file.json"
     __objects = {}
 
@@ -32,12 +40,13 @@ class FileStorage:
             json.dump(dic, f)
 
     def reload(self):
-        """deserializes the JSON file to __objects (only if the JSON file (__file_path)"""
+        """deserializes the JSON file to __objects
+        (only if the JSON file (__file_path)"""
         try:
             with open(self.__file_path, "r") as f:
                 jsonfile = json.load(f)
             for key in jsonfile:
-                self.__objects[key] = class_items[jsonfile[key]["__class__"]](**jsonfile[key])
+                self.__objects[key] = class_items[jsonfile[key]
+                                      ["__class__"]](**jsonfile[key])
         except:
             pass
-
