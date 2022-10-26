@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Place unittest class"""
-from tkinter import Place
 import unittest
 import json
 import pep8
