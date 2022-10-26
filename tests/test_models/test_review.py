@@ -4,27 +4,27 @@ import unittest
 import json
 import pep8
 from datetime import datetime
-from models.base_model import BaseModel
+from models.base_model import Review
 from models.engine.file_storage import FileStorage
 
 
-class Test_BaseModel(unittest.TestCase):
-    """Test BaseModel class"""
+class Test_Review(unittest.TestCase):
+    """Test Review class"""
     
     @classmethod
     def classSetup(cls):
         print('\n\n.................................')
         print('....... Testing Functions .......')
-        print('.....  For BaseModel Class  .....')
+        print('.....  For Review Class  .....')
         print('.................................\n\n')
 
     def setUp(self):
-        """initializes new BaseModel instance for testing"""
-        self.model = BaseModel()
+        """initializes new Review instance for testing"""
+        self.model = Review()
 
     def test_instantiation(self):
         """ checks if BaseModel is properly instantiated"""
-        self.assertIsInstance(self.model, BaseModel)
+        self.assertIsInstance(self.model, Review)
 
     def test_to_string(self):
         """checks if BaseModel  is properly casted to string"""
@@ -43,21 +43,21 @@ class Test_BaseModel(unittest.TestCase):
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
 
-    def test_pep8_base_model(self):
-        """... base_model.py conforms to PEP8 Style"""
+    def test_pep8_review(self):
+        """... review.py conforms to PEP8 Style"""
         pep8style = pep8.StyleGuide(quiet=True)
-        errors = pep8style.check_files(['models/base_model.py'])
+        errors = pep8style.check_files(['models/review.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
-        
-#    def test_to_json(self):
-#        """ to_json should return serializable dict object"""
-#        my_model_json = self.model.to_json()
-#        actual = 1
-#        try:
-#            serialized = json.dumps(my_model_json)
-#        except:
-#            actual = 0
-#        self.assertTrue(1 == actual)
+    
+    def test_to_json(self):
+        """ to_json should return serializable dict object"""
+        my_model_json = self.model.to_json()
+        actual = 1
+        try:
+            serialized = json.dumps(my_model_json)
+        except:
+            actual = 0
+        self.assertTrue(1 == actual)
 
 
 if __name__ == '__main__':

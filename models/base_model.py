@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ BaseModel """
+
+
 from datetime import datetime
 import uuid
 import models
