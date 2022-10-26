@@ -2,6 +2,7 @@
 """ BaseModel unittest class"""
 import unittest
 import json
+import pep8
 from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -42,6 +43,12 @@ class Test_BaseModel(unittest.TestCase):
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
 
+    def test_pep8_base_model(self):
+        """... base_model.py conforms to PEP8 Style"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        errors = pep8style.check_files(['models/base_model.py'])
+        self.assertEqual(errors.total_errors, 0, errors.messages)
+        
 #    def test_to_json(self):
 #        """ to_json should return serializable dict object"""
 #        my_model_json = self.model.to_json()

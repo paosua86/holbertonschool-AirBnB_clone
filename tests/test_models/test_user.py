@@ -4,6 +4,7 @@ Unit Test for User Class
 """
 from datetime import datetime
 import json
+import pep8
 import models
 import unittest
 
@@ -55,6 +56,12 @@ class TestUser(unittest.TestCase):
         except:
             actual = 0
         self.assertTrue(1 == actual)
+    
+    def test_pep8_user(self):
+        """... user.py conforms to PEP8 Style"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        errors = pep8style.check_files(['models/user.py'])
+        self.assertEqual(errors.total_errors, 0, errors.messages)
 
 if __name__ == '__main__':
     unittest.main

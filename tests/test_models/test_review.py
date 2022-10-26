@@ -2,6 +2,7 @@
 """ BaseModel unittest class"""
 import unittest
 import json
+import pep8
 from datetime import datetime
 from models.base_model import Review
 from models.engine.file_storage import FileStorage
@@ -23,7 +24,7 @@ class Test_Review(unittest.TestCase):
 
     def test_instantiation(self):
         """ checks if BaseModel is properly instantiated"""
-        self.assertIsInstance(self.model, BaseModel)
+        self.assertIsInstance(self.model, Review)
 
     def test_to_string(self):
         """checks if BaseModel  is properly casted to string"""
@@ -42,15 +43,21 @@ class Test_Review(unittest.TestCase):
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
 
-#    def test_to_json(self):
-#        """ to_json should return serializable dict object"""
-#        my_model_json = self.model.to_json()
-#        actual = 1
-#        try:
-#            serialized = json.dumps(my_model_json)
-#        except:
-#            actual = 0
-#        self.assertTrue(1 == actual)
+    def test_pep8_review(self):
+        """... review.py conforms to PEP8 Style"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        errors = pep8style.check_files(['models/review.py'])
+        self.assertEqual(errors.total_errors, 0, errors.messages)
+    
+    def test_to_json(self):
+        """ to_json should return serializable dict object"""
+        my_model_json = self.model.to_json()
+        actual = 1
+        try:
+            serialized = json.dumps(my_model_json)
+        except:
+            actual = 0
+        self.assertTrue(1 == actual)
 
 
 if __name__ == '__main__':

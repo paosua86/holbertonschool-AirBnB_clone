@@ -2,6 +2,7 @@
 """ BaseModel unittest class"""
 import unittest
 import json
+import pep8
 from datetime import datetime
 from models.city import City
 from models.engine.file_storage import FileStorage
@@ -35,6 +36,12 @@ class Test_City(unittest.TestCase):
                 actual += 1
         self.assertTrue(4 == actual)
 
+    def test_pep8_city(self):
+        """... city.py conforms to PEP8 Style"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        errors = pep8style.check_files(['models/city.py'])
+        self.assertEqual(errors.total_errors, 0, errors.messages)
+        
     def test_save(self):
         """save function should add updated_at attribute"""
         self.model.save()
