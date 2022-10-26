@@ -13,5 +13,5 @@ class City(BaseModel):
         BaseModel (_type_): _description_
     """
     
-      state_id = ''
-      name = ''
+    state_id = ''
+    name = ''
