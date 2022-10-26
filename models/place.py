@@ -6,14 +6,13 @@ Place Class
 import models
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """Place class
-
     Args:
         BaseModel (_type_): _description_
     """
-    
-    
+
     city_id = ''
     user_id = ''
     name = ''

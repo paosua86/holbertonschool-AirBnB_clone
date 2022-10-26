@@ -12,10 +12,12 @@ from models.amenity import Amenity
 from models.review import Review
 from models import storage
 from models.user import User
-import shlex #splits the line along spaces except in double quotes
+import shlex  # splits the line along spaces except in double quotes
+
 
 class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
                "Amenity": Amenity, "City": City, "State": State}
+
 
 class HBNBCommand(cmd.Cmd):
     """command interprete"""
