@@ -7,26 +7,26 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-class Test_BaseModel(unittest.TestCase):
-    """Test BaseModel class"""
+class Test_Amenity(unittest.TestCase):
+    """Test Amenity class"""
     
     @classmethod
     def classSetup(cls):
         print('\n\n.................................')
         print('....... Testing Functions .......')
-        print('.....  For BaseModel Class  .....')
+        print('.....  For amenity Class  .....')
         print('.................................\n\n')
 
     def setUp(self):
-        """initializes new BaseModel instance for testing"""
+        """initializes new Amenity instance for testing"""
         self.model = BaseModel()
 
     def test_instantiation(self):
-        """ checks if BaseModel is properly instantiated"""
+        """ checks if Amenity is properly instantiated"""
         self.assertIsInstance(self.model, BaseModel)
 
     def test_to_string(self):
-        """checks if BaseModel  is properly casted to string"""
+        """checks if Amenity  is properly casted to string"""
         my_str = str(self.model)
         my_list = ['[', ']', '(', ')']
         actual = 0

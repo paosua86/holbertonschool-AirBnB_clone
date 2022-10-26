@@ -3,30 +3,30 @@
 import unittest
 import json
 from datetime import datetime
-from models.base_model import BaseModel
+from models.city import City
 from models.engine.file_storage import FileStorage
 
 
-class Test_BaseModel(unittest.TestCase):
-    """Test BaseModel class"""
+class Test_City(unittest.TestCase):
+    """Test City class"""
     
     @classmethod
     def classSetup(cls):
         print('\n\n.................................')
         print('....... Testing Functions .......')
-        print('.....  For BaseModel Class  .....')
+        print('.....  For City Class  .....')
         print('.................................\n\n')
 
     def setUp(self):
         """initializes new BaseModel instance for testing"""
-        self.model = BaseModel()
+        self.model = City()
 
     def test_instantiation(self):
         """ checks if BaseModel is properly instantiated"""
-        self.assertIsInstance(self.model, BaseModel)
+        self.assertIsInstance(self.model, City)
 
     def test_to_string(self):
-        """checks if BaseModel  is properly casted to string"""
+        """checks if BaseModel is properly casted to string"""
         my_str = str(self.model)
         my_list = ['[', ']', '(', ')']
         actual = 0
@@ -42,15 +42,15 @@ class Test_BaseModel(unittest.TestCase):
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
 
-#    def test_to_json(self):
-#        """ to_json should return serializable dict object"""
-#        my_model_json = self.model.to_json()
-#        actual = 1
-#        try:
-#            serialized = json.dumps(my_model_json)
-#        except:
-#            actual = 0
-#        self.assertTrue(1 == actual)
+    def test_to_json(self):
+        """ to_json should return serializable dict object"""
+        my_model_json = self.model.to_json()
+        actual = 1
+        try:
+            serialized = json.dumps(my_model_json)
+        except:
+            actual = 0
+        self.assertTrue(1 == actual)
 
 
 if __name__ == '__main__':
