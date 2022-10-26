@@ -5,10 +5,15 @@ entry point of the command interprete
 import cmd
 import models
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models import storage
 import shlex #splits the line along spaces except in double quotes
 
-class_items = {"BaseModel": BaseModel}
+class_items = {"BaseModel": BaseModel, "User": User, "Review": Review, "Amenity": Amenity, "City": City, "State": State}
 
 class HBNBCommand(cmd.Cmd):
     """command interprete"""
