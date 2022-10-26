@@ -3,8 +3,9 @@
 contains FileStorage class
 """
 from models.base_model import BaseModel
+from models.user import User
 import json
-class_items = {"BaseModel": BaseModel}
+class_items = {"BaseModel": BaseModel, "User": User}
 
 
 class FileStorage:
