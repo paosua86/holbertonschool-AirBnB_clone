@@ -6,6 +6,7 @@ State Class
 import models
 from models.base_model import BaseModel
 
+
 class State(BaseModel):
     """State class
 
@@ -14,7 +15,7 @@ class State(BaseModel):
     """
 
     name = ''
-    
+
     def __init__(self):
         """initializated from the paren class BaseModel"""
         super().__init__()
