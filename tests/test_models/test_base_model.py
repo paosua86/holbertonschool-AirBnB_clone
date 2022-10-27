@@ -35,12 +35,17 @@ class Test_BaseModel(unittest.TestCase):
             if sub_str in my_str:
                 actual += 1
         self.assertTrue(4 == actual)
+    
+    def test_to_dict(self):
+        """save class in a dictionary"""
+        dictT = type(self.model.to_dict())
+        self.assertEqual(dictT, type({}))
 
     def test_save(self):
         """save function should add updated_at attribute"""
         self.model.save()
-        actual = type(self.model.updated_at)
-        expected = type(datetime.now())
+        actual = str(self.model.updated_at)[:20]
+        expected = str(datetime.now())[:20]
         self.assertEqual(expected, actual)
 
     def test_pep8_base_model(self):
