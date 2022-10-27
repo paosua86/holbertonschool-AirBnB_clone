@@ -7,8 +7,8 @@ import json
 import models
 import unittest
 
-User = models.user.User
-BaseModel = models.base_model.BaseModel
+from models.user import User
+from models.base_model import BaseModel
 
 
 class TestUser(unittest.TestCase):
@@ -50,6 +50,34 @@ class TestUser(unittest.TestCase):
         """save class in a dictionary"""
         dictT = type(self.model.to_dict())
         self.assertEqual(dictT, type({}))
+        
+    def test_email(self):
+        """verified email set parameter"""
+        asert = False
+        if (self.model.email != None):
+            asert = True
+        self.assertTrue(asert)
+        
+    def test_password(self):
+        """verified email set parameter"""
+        asert = False
+        if (self.model.password != None):
+            asert = True
+        self.assertTrue(asert)
+        
+    def test_first_name(self):
+        """verified email set parameter"""
+        asert = False
+        if (self.model.first_name != None):
+            asert = True
+        self.assertTrue(asert)
+        
+    def test_last_name(self):
+        """verified email set parameter"""
+        asert = False
+        if (self.model.last_name != None):
+            asert = True
+        self.assertTrue(asert)
 
 if __name__ == '__main__':
     unittest.main
