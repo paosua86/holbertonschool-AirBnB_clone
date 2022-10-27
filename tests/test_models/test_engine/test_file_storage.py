@@ -27,12 +27,11 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """initializes new storage object for testing"""
         self.bm_obj = TestFileStorage.bm_obj
-        self.state_obj = TestFileStorage.state_obj
         self.storage = FileStorage()
 
     def test_instantiation(self):
         """... checks proper FileStorage instantiation"""
-        self.assertIsInstance(self.file_store, FileStorage)
+        self.assertIsInstance(self.storage, FileStorage)
 
     def test_all(self):
         """... checks if all() function returns newly created instance"""
@@ -56,7 +55,7 @@ class TestFileStorage(unittest.TestCase):
         self.bm_obj.save()
         bm_id = self.bm_obj.id
         actual = False
-        with open('./dev/file', mode='r', encoding='utf-8') as f_obj:
+        with open('file.json', mode='r', encoding='utf-8') as f_obj:
             storage_dict = json.load(f_obj)
         for k in storage_dict.keys():
             if bm_id in k:
