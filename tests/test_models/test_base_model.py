@@ -45,7 +45,7 @@ class Test_BaseModel(unittest.TestCase):
         """save function should add updated_at attribute"""
         self.model.save()
         actual = str(self.model.updated_at)[:20]
-        expected = str(datetime.now())[:20]
+        expected = str(datetime.utcnow())[:20]
         self.assertEqual(expected, actual)
 
     def test_pep8_base_model(self):
