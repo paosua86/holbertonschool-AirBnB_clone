@@ -19,5 +19,5 @@ class Review(BaseModel):
     text = ''
 
     def __init__(self):
-        """initializated from the paren class BaseModel"""
+        """initializated from the parent class BaseModel"""
         super().__init__()

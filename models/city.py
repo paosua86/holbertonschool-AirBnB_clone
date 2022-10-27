@@ -18,4 +18,5 @@ class City(BaseModel):
     name = ''
 
     def __init__(self):
+        """initializated from the parent class BaseModel"""
         super().__init__()
