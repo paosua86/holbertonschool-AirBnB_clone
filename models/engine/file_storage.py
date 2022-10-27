@@ -12,8 +12,8 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
-               "Amenity": Amenity, "City": City, "State": State, "Place": Place}
+cla_i = {"BaseModel": BaseModel, "User": User, "Review": Review,
+         "Amenity": Amenity, "City": City, "State": State, "Place": Place}
 
 
 class FileStorage:
@@ -45,9 +45,8 @@ class FileStorage:
         (only if the JSON file (__file_path)"""
         try:
             with open(self.__file_path, "r") as f:
-                jsonfile = json.load(f)
-            for key in jsonfile:
-                self.__objects[key] = class_items[jsonfile[key]
-                                      ["__class__"]](**jsonfile[key])
-        except:
+                jr = json.load(f)
+            for key in jr:
+                self.__objects[key] = cla_i[jr[key]["__class__"]](**jr[key])
+        except Exception:
             pass
