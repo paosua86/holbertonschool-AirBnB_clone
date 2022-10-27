@@ -14,17 +14,25 @@ from models import storage
 from models.user import User
 from models.place import Place
 import shlex  # splits the line along spaces except in double quotes
-import re
+import sys
 
 class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
                "Amenity": Amenity, "City": City,
                "State": State, "Place": Place}
 
-
 class HBNBCommand(cmd.Cmd):
     """command interprete"""
 
     prompt = "(hbnb) "
+
+    def precmd(self, arg):
+        args = arg.split(".")
+        if len(args) > 1:
+            tmp = args[1].split('(')[0]
+            args_new = tmp+" "+args[0]
+            return (args_new)
+        else:
+            return args[0]
 
     def do_quit(self, arg):
         """to exit the program"""
@@ -133,21 +141,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, args):
         """count # of instances of a class"""
-        if not args:
-            print('** class name missing **')
-        else:
-            m = []
-            objects = models.storage.all()
-            data = args.split()
-            if not data[0]:
-                print("** class name missing **")
-            elif data[0] not in class_items:
-                print("** class doesn't exist **")
-            else:
-                for i in objects:
-                    if i.startswith(data[0]):
-                        m = [i]
-                print(len(m))
+        args = shlex.split(args)
+        counter = 0
+        for obj in storage.all().values():
+            if args[0] == obj.__class__.__name__:
+                counter += 1
+        print(counter)
 
 
 if __name__ == '__main__':
