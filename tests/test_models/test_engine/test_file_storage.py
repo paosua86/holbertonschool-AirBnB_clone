@@ -21,9 +21,7 @@ class TestFileStorage(unittest.TestCase):
         print('..... For FileStorage Class .....')
         print('.................................\n\n')
         cls.bm_obj = BaseModel()
-        cls.state_obj = State(name="Illinois")
         cls.bm_obj.save()
-        cls.state_obj.save()
 
 
     def setUp(self):
@@ -44,7 +42,7 @@ class TestFileStorage(unittest.TestCase):
         for k in all_obj.keys():
             if bm_id in k:
                 actual = True
-        self.assertTrue(True)
+        self.assertTrue(actual)
 
     def test_pep8_filestore(self):
         """... city.py conforms to PEP8 Style"""
@@ -77,3 +75,9 @@ class TestFileStorage(unittest.TestCase):
             if bm_id in k:
                 actual = True
         self.assertTrue(actual)
+
+
+if __name__ == "__main__":
+    """Run Test"""
+    
+    unittest.main
