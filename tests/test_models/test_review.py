@@ -4,7 +4,7 @@ import unittest
 import json
 import pep8
 from datetime import datetime
-from models.base_model import Review
+from models.review import Review
 from models.engine.file_storage import FileStorage
 
 

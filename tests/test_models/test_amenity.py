@@ -4,7 +4,7 @@ import unittest
 import json
 import pep8
 from datetime import datetime
-from models.base_model import BaseModel
+from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 
 
@@ -20,11 +20,11 @@ class Test_Amenity(unittest.TestCase):
 
     def setUp(self):
         """initializes new Amenity instance for testing"""
-        self.model = BaseModel()
+        self.model = Amenity()
 
     def test_instantiation(self):
         """ checks if Amenity is properly instantiated"""
-        self.assertIsInstance(self.model, BaseModel)
+        self.assertIsInstance(self.model, Amenity)
 
     def test_to_string(self):
         """checks if Amenity  is properly casted to string"""

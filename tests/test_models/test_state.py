@@ -4,7 +4,7 @@ import unittest
 import json
 import pep8
 from datetime import datetime
-from models.base_model import State
+from models.state import State
 from models.engine.file_storage import FileStorage
 
 
