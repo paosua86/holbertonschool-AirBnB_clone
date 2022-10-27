@@ -12,11 +12,11 @@ class Review(BaseModel):
     Args:
         BaseModel (_type_): _description_
     """
-        
+
     place_id = ''
     user_id = ''
     text = ''
 
     def __init__(self):
-        """initializated from the paren class BaseModel"""
+        """initializated from the parent class BaseModel"""
         super().__init__()
