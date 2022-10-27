@@ -65,16 +65,6 @@ class TestFileStorage(unittest.TestCase):
                 actual = True
         self.assertTrue(True)
 
-    def test_to_json(self):
-        """... to_json should return serializable dict object"""
-        my_model_json = self.bm_obj.to_json()
-        actual = True
-        try:
-            serialized = json.dumps(my_model_json)
-        except:
-            actual = False
-        self.assertTrue(actual)
-
     def test_reload(self):
         """... checks proper usage of reload function"""
         self.bm_obj.save()

@@ -48,16 +48,6 @@ class Test_Review(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         errors = pep8style.check_files(['models/review.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
-    
-    def test_to_json(self):
-        """ to_json should return serializable dict object"""
-        my_model_json = self.model.to_json()
-        actual = 1
-        try:
-            serialized = json.dumps(my_model_json)
-        except:
-            actual = 0
-        self.assertTrue(1 == actual)
 
 
 if __name__ == '__main__':

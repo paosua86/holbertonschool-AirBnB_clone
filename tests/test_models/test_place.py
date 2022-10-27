@@ -36,10 +36,10 @@ class Test_Place(unittest.TestCase):
                 actual += 1
         self.assertTrue(4 == actual)
 
-    def test_pep8_city(self):
+    def test_pep8_place(self):
         """... city.py conforms to PEP8 Style"""
         pep8style = pep8.StyleGuide(quiet=True)
-        errors = pep8style.check_files(['models/city.py'])
+        errors = pep8style.check_files(['models/place.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
         
     def test_save(self):
@@ -48,16 +48,6 @@ class Test_Place(unittest.TestCase):
         actual = type(self.model.updated_at)
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
-
-    def test_to_json(self):
-        """ to_json should return serializable dict object"""
-        my_model_json = self.model.to_json()
-        actual = 1
-        try:
-            serialized = json.dumps(my_model_json)
-        except:
-            actual = 0
-        self.assertTrue(1 == actual)
 
 
 if __name__ == '__main__':

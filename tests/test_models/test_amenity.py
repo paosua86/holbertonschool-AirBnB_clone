@@ -49,16 +49,6 @@ class Test_Amenity(unittest.TestCase):
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
 
-#    def test_to_json(self):
-#        """ to_json should return serializable dict object"""
-#        my_model_json = self.model.to_json()
-#        actual = 1
-#        try:
-#            serialized = json.dumps(my_model_json)
-#        except:
-#            actual = 0
-#        self.assertTrue(1 == actual)
-
 
 if __name__ == '__main__':
     """
