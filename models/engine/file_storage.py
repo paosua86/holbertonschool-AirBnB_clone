@@ -32,14 +32,6 @@ class FileStorage:
             key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
 
-    def save(self):
-        """serializes __objects to the JSON file (path: __file_path)"""
-        dic = {}
-        for key in self.__objects.keys():
-            dic[key] = self.__objects[key].to_dict()
-        with open(self.__file_path, "w") as f:
-            json.dump(dic, f)
-
     def reload(self):
         """deserializes the JSON file to __objects
         (only if the JSON file (__file_path)"""
@@ -48,5 +40,13 @@ class FileStorage:
                 jr = json.load(f)
             for key in jr:
                 self.__objects[key] = cla_i[jr[key]["__class__"]](**jr[key])
-        except Exception:
+        except:
             pass
+
+    def save(self):
+        """serializes __objects to the JSON file (path: __file_path)"""
+        dic = {}
+        for key in self.__objects.keys():
+            dic[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, "w") as f:
+            json.dump(dic, f)
