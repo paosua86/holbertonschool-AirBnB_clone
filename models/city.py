@@ -12,9 +12,10 @@ class City(BaseModel):
     Args:
         BaseModel (_type_): _description_
     """
-    
+
     state_id = ''
     name = ''
-    
+
     def __init__(self):
+        """initializated from the parent class BaseModel"""
         super().__init__()
