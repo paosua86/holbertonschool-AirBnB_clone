@@ -14,3 +14,7 @@ class State(BaseModel):
     """
 
     name = ''
+    
+    def __init__(self):
+        """initializated from the paren class BaseModel"""
+        super().__init__()

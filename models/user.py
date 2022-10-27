@@ -12,7 +12,11 @@ class User(BaseModel):
     Args:
         BaseModel (_type_): _description_
     """
+
     email = ''
     password = ''
     first_name = ''
     last_name = ''
+
+    def __init__(self):
+        super().__init__()
