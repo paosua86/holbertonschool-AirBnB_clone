@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """ BaseModel unittest class"""
 import unittest
-import json
 import pep8
-from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
@@ -38,8 +36,11 @@ class Test_BaseModel(unittest.TestCase):
 
     def test_to_dict(self):
         """save class in a dictionary"""
-        dictT = type(self.model.to_dict())
-        self.assertEqual(dictT, type({}))
+        base_test = BaseModel()
+        dict_base = base_test.to_dict()
+        self.assertIsInstance(dict_base, dict)
+        self.assertIsInstance(dict_base['created_at'], str)
+        self.assertIsInstance(dict_base['updated_at'], str)
 
     def test_save(self):
         """save function should add updated_at attribute"""
