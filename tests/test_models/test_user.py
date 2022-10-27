@@ -19,7 +19,7 @@ class TestUser(unittest.TestCase):
         print('\n\n.................................')
         print('....... Testing Functions .......')
         print('.........  User  Class  .........')
-        print('.................................\n\n')
+        print('.............................\n\n')
 
     def setUp(self):
         """initializes new user for testing"""
