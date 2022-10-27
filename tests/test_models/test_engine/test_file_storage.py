@@ -60,7 +60,7 @@ class TestFileStorage(unittest.TestCase):
         for k in storage_dict.keys():
             if bm_id in k:
                 actual = True
-        self.assertTrue(True)
+        self.assertTrue(actual)
 
     def test_reload(self):
         """... checks proper usage of reload function"""

@@ -45,7 +45,11 @@ class TestUser(unittest.TestCase):
         actual = type(self.model.updated_at)
         expected = type(datetime.now())
         self.assertEqual(expected, actual)
-
+        
+    def test_to_dict(self):
+        """save class in a dictionary"""
+        dictT = type(self.model.to_dict())
+        self.assertEqual(dictT, type({}))
 
 if __name__ == '__main__':
     unittest.main
