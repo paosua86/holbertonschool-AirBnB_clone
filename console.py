@@ -130,6 +130,5 @@ class HBNBCommand(cmd.Cmd):
         setattr(updated_content, args[2], args[3])
         updated_content.save()
 
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
