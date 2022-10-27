@@ -59,7 +59,7 @@ Classes inherited from Base Model:
 * `def all(self)` - returns the dictionary __objects
 * `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id
 * `def save(self)` - serializes __objects to the JSON file (path: __file_path)
-* ` def reload(self)` -  deserializes the JSON file to __objects
+* `def reload(self)` -  deserializes the JSON file to __objects
 
 #### `/tests` directory contains all unit test cases for this project:
 [/test_models/test_base_model.py](/tests/test_models/test_base_model.py) - Contains the TestBaseModel and TestBaseModelDocs classes
@@ -134,21 +134,29 @@ $./console.py
 
 Documented commands (type help <topic>):
 ========================================
-EOF  all  create  destroy  help  quit  show  update
+EOF  all  count  create  destroy  help  quit  show  update
 
 (hbnb) all Mymodel
 ** class doesn't exist **
 (hbnb) create BaseModel
-99429552-e740-411a-a62f-338a3d767bba
-(hbnb) all BaseModel
-[BaseModel] (d53d260c-e80b-4580-a3c5-4337ead8ae7d) {'id': 'd53d260c-e80b-4580-a3c5-4337ead8ae7d', 'created_at': datetime.datetime(2022, 10, 26, 15, 0, 3, 493864), 'updated_at': datetime.datetime(2022, 10, 26, 15, 0, 3, 493869)}", "[BaseModel] (99429552-e740-411a-a62f-338a3d767bba) {'id': '99429552-e740-411a-a62f-338a3d767bba', 'created_at': datetime.datetime(2022, 10, 26, 15, 4, 9, 39561), 'updated_at': datetime.datetime(2022, 10, 26, 15, 4, 9, 39616)}"]
+bbd5eb79-4e24-404f-93f8-53c9c10de9e2
 (hbnb) show BaseModel
 ** instance id missing **
-(hbnb) show BaseModel 99429552-e740-411a-a62f-338a3d767bba
-[BaseModel] (99429552-e740-411a-a62f-338a3d767bba) {'id': '99429552-e740-411a-a62f-338a3d767bba', 'created_at': datetime.datetime(2022, 10, 26, 15, 4, 9, 39561), 'updated_at': datetime.datetime(2022, 10, 26, 15, 4, 9, 39616)}
-(hbnb) destroy Basemodel 99429552-e740-411a-a62f-338a3d767bba
-** class doesn't exist **
-(hbnb) destroy BaseModel 99429552-e740-411a-a62f-338a3d767bba
+(hbnb) show BaseModel bbd5eb79-4e24-404f-93f8-53c9c10de9e2
+[BaseModel] (bbd5eb79-4e24-404f-93f8-53c9c10de9e2) {'id': 'bbd5eb79-4e24-404f-93f8-53c9c10de9e2', 'created_at': datetime.datetime(2022, 10, 27, 18, 14, 2, 909876), 'updated_at': datetime.datetime(2022, 10, 27, 18, 14, 2, 909999)}
+(hbnb) create User
+409fa35a-db20-450e-84ee-d510c1b6cf9a
+(hbnb) User.create()
+f8d260fe-c93b-4ffa-9048-a80734fc91b4
+(hbnb) all User
+["[User] (409fa35a-db20-450e-84ee-d510c1b6cf9a) {'id': '409fa35a-db20-450e-84ee-d510c1b6cf9a', 'created_at': datetime.datetime(2022, 10, 27, 18, 14, 32, 759811), 'updated_at': datetime.datetime(2022, 10, 27, 18, 14, 32, 759877)}", "[User] (f8d260fe-c93b-4ffa-9048-a80734fc91b4) {'id': 'f8d260fe-c93b-4ffa-9048-a80734fc91b4', 'created_at': datetime.datetime(2022, 10, 27, 18, 14, 43, 358151), 'updated_at': datetime.datetime(2022, 10, 27, 18, 14, 43, 358225)}"]
+(hbnb) User.count()
+2
+(hbnb) Place.create()
+ac2e852a-e309-41d2-b551-57f2a65f6b48
+(hbnb) show Place ac2e852a-e309-41d2-b551-57f2a65f6b48
+[Place] (ac2e852a-e309-41d2-b551-57f2a65f6b48) {'id': 'ac2e852a-e309-41d2-b551-57f2a65f6b48', 'created_at': datetime.datetime(2022, 10, 27, 18, 15, 26, 418437), 'updated_at': datetime.datetime(2022, 10, 27, 18, 15, 26, 418496)}
+(hbnb) destroy Place ac2e852a-e309-41d2-b551-57f2a65f6b48
 (hbnb) quit
 ```
 
