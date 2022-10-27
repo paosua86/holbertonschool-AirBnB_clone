@@ -44,9 +44,8 @@ class Test_BaseModel(unittest.TestCase):
     def test_save(self):
         """save function should add updated_at attribute"""
         self.model.save()
-        actual = type(self.model.updated_at)
-        expected = type(datetime.utcnow())
-        self.assertEqual(expected, actual)
+        self.assertNotEqual(self.model.updated_at,
+                            self.model.created_at)
 
     def test_pep8_base_model(self):
         """... base_model.py conforms to PEP8 Style"""
