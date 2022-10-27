@@ -10,7 +10,7 @@ from models.engine.file_storage import FileStorage
 
 class Test_BaseModel(unittest.TestCase):
     """Test BaseModel class"""
-    
+
     @classmethod
     def classSetup(cls):
         print('\n\n.................................')
@@ -35,7 +35,7 @@ class Test_BaseModel(unittest.TestCase):
             if sub_str in my_str:
                 actual += 1
         self.assertTrue(4 == actual)
-    
+
     def test_to_dict(self):
         """save class in a dictionary"""
         dictT = type(self.model.to_dict())
@@ -44,13 +44,8 @@ class Test_BaseModel(unittest.TestCase):
     def test_save(self):
         """save function should add updated_at attribute"""
         self.model.save()
-<<<<<<< HEAD
         actual = type(self.model.updated_at)
         expected = type(datetime.utcnow())
-=======
-        actual = str(self.model.updated_at)[:20]
-        expected = str(datetime.utcnow())[:20]
->>>>>>> 37a98f254beba16d078efbfe77f2e6fcf633315a
         self.assertEqual(expected, actual)
 
     def test_pep8_base_model(self):
