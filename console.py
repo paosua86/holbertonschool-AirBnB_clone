@@ -14,7 +14,7 @@ from models import storage
 from models.user import User
 from models.place import Place
 import shlex  # splits the line along spaces except in double quotes
-
+import re
 
 class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
                "Amenity": Amenity, "City": City, "State": State, "Place": Place}
@@ -129,6 +129,24 @@ class HBNBCommand(cmd.Cmd):
         updated_content = storage.all()['{}.{}'.format(args[0], args[1])]
         setattr(updated_content, args[2], args[3])
         updated_content.save()
+
+    def do_count(self, args):
+        """count # of instances of a class"""
+        if not args:
+            print('** class name missing **')
+        else:
+            m = []
+            objects = models.storage.all()
+            data = args.split()
+            if not data[0]:
+                print("** class name missing **")
+            elif data[0] not in classes:
+                print("** class doesn't exist **")
+            else:
+                for i in objects:
+                    if i.startswith(data[0]):
+                        m = [i]
+                print(len(m))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
