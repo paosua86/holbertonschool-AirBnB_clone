@@ -17,7 +17,8 @@ import shlex  # splits the line along spaces except in double quotes
 import re
 
 class_items = {"BaseModel": BaseModel, "User": User, "Review": Review,
-               "Amenity": Amenity, "City": City, "State": State, "Place": Place}
+               "Amenity": Amenity, "City": City,
+               "State": State, "Place": Place}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -140,13 +141,14 @@ class HBNBCommand(cmd.Cmd):
             data = args.split()
             if not data[0]:
                 print("** class name missing **")
-            elif data[0] not in classes:
+            elif data[0] not in class_items:
                 print("** class doesn't exist **")
             else:
                 for i in objects:
                     if i.startswith(data[0]):
                         m = [i]
                 print(len(m))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
