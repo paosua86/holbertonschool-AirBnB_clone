@@ -42,18 +42,17 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsInstance(dict_base['created_at'], str)
         self.assertIsInstance(dict_base['updated_at'], str)
 
-    def test_save(self):
-        """save function should add updated_at attribute"""
-        self.model.save()
-        self.assertNotEqual(self.model.updated_at,
-                            self.model.created_at)
-
     def test_pep8_base_model(self):
         """... base_model.py conforms to PEP8 Style"""
         pep8style = pep8.StyleGuide(quiet=True)
         errors = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
 
+    def test_save(self):
+        """Checks if updated_at is changed with save method"""
+        self.model.save()
+        self.assertNotEqual(self.model.updated_at,
+                            self.model.created_at)
 
 if __name__ == '__main__':
     """
