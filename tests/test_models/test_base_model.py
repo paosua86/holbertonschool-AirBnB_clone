@@ -49,13 +49,7 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(errors.total_errors, 0, errors.messages)
 
     def test_save(self):
-        """Checks if updated_at is changed with save method"""
-        self.model.save()
-        self.assertNotEqual(self.model.updated_at,
-                            self.model.created_at)
-
-    def test_save_with_file(self):
-        """ Checks if the generated key is saved in the json file"""
+        """ Checks save"""
         obj = BaseModel()
         obj.save()
         key_id = f"BaseModel.{obj.id}"
